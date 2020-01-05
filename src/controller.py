@@ -1,9 +1,12 @@
-from .lib import PascalTriangle
+from .lib import PascalTriangle, SierpinskiTriangle
 
 
 class Controller:
-    def __init__(self, n):
-        self.n = n
 
-    def get_triangle(self):
-        return PascalTriangle(self.n).get_triangle()
+    @staticmethod
+    def get_pascal_triangle(n):
+        return PascalTriangle(n).get_triangle()
+
+    @staticmethod
+    def get_sierpinski_triangle(n, d):
+        return SierpinskiTriangle(n, d).get_triangle()
