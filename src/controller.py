@@ -5,8 +5,8 @@ class Controller:
 
     @staticmethod
     def get_pascal_triangle(n):
-        return PascalTriangle(n).get_triangle()
+        return PascalTriangle(n)
 
     @staticmethod
     def get_sierpinski_triangle(n, d):
-        return SierpinskiTriangle(n, d).get_triangle()
+        return SierpinskiTriangle(n, d)
