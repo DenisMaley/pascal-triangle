@@ -18,8 +18,7 @@ def cli():
 )
 def pascal_triangle(number):
     triangle = Controller.get_pascal_triangle(number)
-    for i in range(len(triangle)):
-        print(triangle[i])
+    print(repr(triangle))
 
 
 @cli.command()
@@ -39,11 +38,7 @@ def pascal_triangle(number):
 )
 def sierpinski_triangle(number, divider):
     triangle = Controller.get_sierpinski_triangle(number, divider)
-    for i in range(len(triangle)):
-        row = ''
-        for j in range(len(triangle[i])):
-            row += ' ' if triangle[i][j] == 0 else '*'
-        print(row)
+    print(repr(triangle))
 
 
 if __name__ == '__main__':
