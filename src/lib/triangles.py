@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from .binom import binomial_coef
+from .binom import binomial_coefficient
 
 
 class Triangle(ABC):
@@ -36,7 +36,7 @@ class Triangle(ABC):
 
 class PascalTriangle(Triangle):
     def build_element(self, i, j):
-        return binomial_coef(i, j)
+        return binomial_coefficient(i, j)
 
     def repr_element(self, e):
         return str(e)
@@ -48,7 +48,7 @@ class SierpinskiTriangle(Triangle):
         super(SierpinskiTriangle, self).__init__(n)
 
     def build_element(self, i, j):
-        return binomial_coef(i, j) % self.d
+        return binomial_coefficient(i, j) % self.d
 
     def repr_element(self, e):
         return ' ' if e == 0 else '*'

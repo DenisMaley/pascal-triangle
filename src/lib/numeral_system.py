@@ -1,3 +1,5 @@
+from src.exceptions import AlphabetError
+
 ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyz"
 
 
@@ -12,7 +14,7 @@ def encode(n):
     try:
         return ALPHABET[n]
     except IndexError:
-        raise Exception("cannot encode: %s" % n)
+        raise AlphabetError("There is no index {} in the alphabet.".format(n))
 
 
 def base_to_dec(s, base=2, pow=0):
@@ -26,4 +28,4 @@ def decode(s):
     try:
         return ALPHABET.index(s)
     except ValueError:
-        raise Exception("cannot decode: %s" % s)
+        raise AlphabetError("There is no symbol {} in the alphabet.".format(s))
