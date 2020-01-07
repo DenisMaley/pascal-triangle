@@ -16,7 +16,7 @@ def encode(n):
 
 
 def base_to_dec(s, base=2, pow=0):
-    if s is "":
+    if s == "":
         return 0
     else:
         return decode(s[-1]) * (base ** pow) + base_to_dec(s[0:-1], base, pow + 1)
