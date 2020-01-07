@@ -9,3 +9,6 @@ pascal-triangle:
 
 sierpinski-triangle:
 	docker run --rm -it pascal-triangle sierpinski-triangle -n $(NUM) -d $(DIVIDER)
+
+not-div-count:
+	docker run --rm -it pascal-triangle not-div-count -n $(NUM) -d $(DIVIDER)
