@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from .binom_coef import binomial_coef
+from .binom import binomial_coef
 
 
 class Triangle(ABC):
