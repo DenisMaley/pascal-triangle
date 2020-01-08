@@ -7,6 +7,8 @@ class TestBinom(unittest.TestCase):
     tests = [
         {'n': 1, 'k': -1, 'expected_coef': 0},
         {'n': 1, 'k': 4, 'expected_coef': 0},
+        {'n': 1, 'k': 0, 'expected_coef': 1},
+        {'n': 4, 'k': 4, 'expected_coef': 1},
         {'n': 1, 'k': 1, 'expected_coef': 1},
         {'n': 4, 'k': 3, 'expected_coef': 4},
         {'n': 10, 'k': 3, 'expected_coef': 120},
