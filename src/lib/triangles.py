@@ -17,7 +17,7 @@ class Triangle(ABC):
         pass
 
     def __repr__(self):
-        last_row_len = len(' '.join(self.repr_element(x) for x in self.triangle[self.n]))
+        last_row_len = len(' '.join(self.repr_element(x) for x in self.triangle[self.n - 1]))
 
         triangle_repr_rows = []
         for row in self.triangle:
@@ -29,7 +29,7 @@ class Triangle(ABC):
 
     def get_triangle(self):
         triangle = []
-        for i in range(self.n + 1):
+        for i in range(self.n):
             triangle.append([self.build_element(i, j) for j in range(i + 1)])
         return triangle
 

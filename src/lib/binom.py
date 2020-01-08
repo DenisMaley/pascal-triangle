@@ -15,4 +15,4 @@ def binomial_coefficient(n: int, k: int) -> int:
     c = 1
     for i in range(k):
         c = c * (n - i) / (i + 1)
-    return c
+    return int(c)

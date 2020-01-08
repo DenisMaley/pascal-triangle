@@ -17,4 +17,4 @@ class Controller:
 
     @staticmethod
     def get_not_divisible(n, d):
-        return not_div_count(n, d)
+        return not_div_count(n - 1, d)

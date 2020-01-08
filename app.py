@@ -17,8 +17,8 @@ def cli():
     help='Number of rows',
 )
 def pascal_triangle(number):
-    triangle = Controller.get_pascal_triangle(number - 1)
-    print(repr(triangle))
+    triangle = Controller.get_pascal_triangle(number)
+    click.echo(repr(triangle))
 
 
 @cli.command()
@@ -37,8 +37,8 @@ def pascal_triangle(number):
     help='Number of rows',
 )
 def sierpinski_triangle(number, divider):
-    triangle = Controller.get_sierpinski_triangle(number - 1, divider)
-    print(repr(triangle))
+    triangle = Controller.get_sierpinski_triangle(number, divider)
+    click.echo(repr(triangle))
 
 
 @cli.command()
@@ -57,7 +57,7 @@ def sierpinski_triangle(number, divider):
     help='Number of rows',
 )
 def not_div_count(number, divider):
-    print(Controller.get_not_divisible(number - 1, divider))
+    click.echo(Controller.get_not_divisible(number, divider))
 
 
 if __name__ == '__main__':
