@@ -1,4 +1,6 @@
+htmlcov
 venv
 .idea/
 __pycache__
 *.py[cod]
+.coverage

@@ -9,11 +9,11 @@ class Triangle(ABC):
         self.triangle = self.get_triangle()
 
     @abstractmethod
-    def build_element(self, i, j):
+    def build_element(self, i, j):  # pragma: no cover
         pass
 
     @abstractmethod
-    def repr_element(self, e):
+    def repr_element(self, e):  # pragma: no cover
         pass
 
     def __repr__(self):
