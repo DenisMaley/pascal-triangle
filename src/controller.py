@@ -4,7 +4,7 @@ from .solutions import not_div_count
 
 class Controller:
 
-    def __init__(self):
+    def __init__(self):  # pragma: no cover
         pass
 
     @staticmethod
