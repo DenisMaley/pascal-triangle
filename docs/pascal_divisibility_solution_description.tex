@@ -89,12 +89,20 @@ $$k=k_ip^i+k_{i-1}p^{i-1}+\cdots +k_1p+k_0 = \overline{k_ik_{i-1} \cdots k_0}.$$
 So, in other words, $p \mid \binom m k <=> \exists \: j: k_j > m_j$
 \bigskip
 
-Let's denote the amount of $\binom m k$ not divisible by $p$ in a row with 
-index $m$ as a function $d(m).$ 
+Let's denote:
+
+The amount of $\binom m k$ not divisible by $p$ in a row with
+index $m$ as a function $d(m)$.
+
+And the target function D(n) - the number of binomial coefficients $\binom m k$
+for $m \le n$ that are not divisible by $p$:
+
+$$D(n) = {\displaystyle \sum^{n}_{i=1}{d(i)}}$$
 
 \bigskip
 
-As an example, let's take a look on Pascal's triangle's row with index 6 and 
+First we'll find d(m).
+As an example, let's take a look on Pascal's triangle's row with index 6 and
 consider $p = 3$: $m = 6 = 2*3 + 0 = \overline{20}$.
 
 
@@ -105,8 +113,8 @@ consider $p = 3$: $m = 6 = 2*3 + 0 = \overline{20}$.
     \hline
     decimal $k$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
     \hline
-    $p$ expansion of $k$ & $\overline{00}$ & $\overline{01}$ & $\overline{02}$ & 
-    $\overline{10}$ & $\overline{11}$ & $\overline{12}$ & 
+    $p$ expansion of $k$ & $\overline{00}$ & $\overline{01}$ & $\overline{02}$ &
+    $\overline{10}$ & $\overline{11}$ & $\overline{12}$ &
     $\overline{20}$ \\
     \hline
     $j: k_j > m_j$ & $\nexists$ & 0 & 0 & $\nexists$ & 0 & 0 & $\nexists$ \\
@@ -119,14 +127,78 @@ consider $p = 3$: $m = 6 = 2*3 + 0 = \overline{20}$.
 \end{table}
 
 So, in the row with index 6 we have $d(6) = 3$.
-Now let's count this number without checking each coefficient in the row: for 
-$m = \overline{20}$ $\binom m k$ is not divisible if $k_1 \le 2$ and $k_0 \le 0$
+Now let's count this number without checking each coefficient in the row: for
+$m = \overline{20}$, $\binom m k$ is not divisible if $k_1 \le 2$ and
+$k_0 \le 0$
 Consequently, $d(6) = (2 + 1) * (0 + 1)$
 
 \bigskip
 
-In general case for the $m = \overline{m_im_{i-1} \cdots m_0}$ 
+In general case for the $m = \overline{m_im_{i-1} \cdots m_0}$
 $$d(m) = {\displaystyle \prod_{j=0}^{i} (m_j + 1)}$$
+
+\bigskip
+
+Now, we can notice the fractal structure of non-divisible by $p$ numbers in
+the triangle, if we mark non-divisible as * and space for divisible ones.
+Example for $p=3$:
+
+$$
+\begin{tabular}{rccccccccccccccccccc}
+$m=0$:&&&&&&&&&&*\\\noalign{\smallskip\smallskip}
+$m=1$:&&&&&&&&&*& &*\\\noalign{\smallskip\smallskip}
+$m=2$:&&&&&&&&*& &*& &*\\\noalign{\smallskip\smallskip}
+$m=3$:&&&&&&&*& & & & & &*\\\noalign{\smallskip\smallskip}
+$m=4$:&&&&&&*& &*& & & &*& &*\\\noalign{\smallskip\smallskip}
+$m=5$:&&&&&*& &*& &*& &*& &*& &*\\\noalign{\smallskip\smallskip}
+$m=6$:&&&&*& & & & & &*& & & & & &*\\\noalign{\smallskip\smallskip}
+$m=7$:&&&*& &*& & & &*& &*& & & &*& &*\\\noalign{\smallskip\smallskip}
+$m=8$:&&*& &*& &*& &*& &*& &*& &*& &*& &*\\\noalign{\smallskip\smallskip}
+\end{tabular}
+$$
+
+So for the first $p^i$ rows we'll have a triangle constructed by
+${\displaystyle \frac{p(p+1)}{2}}$ (sum of arithmetic progression)
+triangles of size $p^{i-1}$
+
+\bigskip
+
+Thus,
+
+$$
+D(p^i-1) = {\displaystyle \frac{p(p+1)}{2}} D(p^{i-1}-1) =
+{\displaystyle \left( \dfrac{p(p+1)}{2} \right)}^i
+$$
+
+\newpage
+
+Now we'll extend this result for a multiple of $p^i$:
+$$n = n_ip^i - 1 = \overline{n_i0 \cdots 0} - 1$$
+
+$$
+D(n_ip^i-1) = {\displaystyle \frac{n_i(n_i+1)}{2}} D(p^{i}-1) =
+{\displaystyle \frac{n_i(n_i+1)}{2} \left( \dfrac{p(p+1)}{2} \right)}^i
+$$
+
+In turn, we can now expand this formula to arbitrary $n$ if we notice that
+
+$$n=n_ip^i + \overline{n_{i-1} \cdots n_0}$$
+
+$$
+D(\overline{n_in_{i-1} \cdots n_0}) =
+D(\overline{n_i0 \cdots 0} - 1) + d(\overline{n_i0 \cdots 0}) + \cdots +
+d(\overline{n_in_{i-1} \cdots n_0}) =
+$$
+
+$$
+D(n_ip^i-1) + (n_i - 1)(d(\overline{0 \cdots 0}) + \cdots +
+d(\overline{n_{i-1} \cdots n_0})) =
+$$
+
+$$
+{\displaystyle \frac{n_i(n_i+1)}{2} \left( \dfrac{p(p+1)}{2} \right)}^i +
+ (n_i - 1)D(\overline{n_{i-1} \cdots n_0})
+$$
 
 \bigskip
 
