@@ -220,5 +220,5 @@ coverage report
 ```bash
 coverage html && python -m webbrowser "htmlcov/index.html"
 ```
-[Theory]: docs/pascal_triangle_divisibility_problem.pdf
+[Theory]: docs/pascal_divisibility_solution_description.pdf
 [Docker Install]:  https://docs.docker.com/install/
